@@ -1,0 +1,53 @@
+server:
+  #address: localhost
+  port: 8080
+
+logging:
+  level:
+    root: info
+    com:
+      prj:
+        codingstudy.*: debug
+    javax:
+      sql:
+        DataSource: OFF
+    jdbc:
+      audit: OFF # JDBC 트러블슈팅 경우를 제외하고는 사용 권장 X
+      resultset: OFF # ResultSet을 포함한 모든 JDBC 호출 정보를 출력
+      resultsettable: INFO  #SQL 결과 데이터 Table형식으로 출력
+      sqlonly: OFF     #SQL만 로그만 출력
+      sqltiming: INFO    #SQL + 소요시간 출력
+      connection: OFF  # 커넥션 연결/종료 정보 출력
+
+  # config: classpath:logback-${spring.profiles.active}.xml
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: classpath:/
+    livereload:
+      enabled: true
+  mustache:
+    servlet:
+      cache: false
+
+  datasource:
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    # url: jdbc:mysql://db.codingmate24.kro.kr:3306/develop
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url : jdbc:log4jdbc:mysql://db.codingmate24.kro.kr:3306/develop
+    username: admin
+    password: admin1234
+mybatis:
+  type-aliases-package: com.prj.codingstudy.domain.*
+  mapper-locations: /mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: VARCHAR
+
+
+
+
+
+
+
