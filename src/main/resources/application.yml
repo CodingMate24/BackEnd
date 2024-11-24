@@ -21,6 +21,12 @@ logging:
 
   # config: classpath:logback-${spring.profiles.active}.xml
 spring:
+  profiles:
+    active: local
+
+  application:
+    name: CodingStudy
+
   devtools:
     restart:
       enabled: true
@@ -35,15 +41,24 @@ spring:
     # driver-class-name: com.mysql.cj.jdbc.Driver
     # url: jdbc:mysql://db.codingmate24.kro.kr:3306/develop
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url : jdbc:log4jdbc:mysql://db.codingmate24.kro.kr:3306/develop
-    username: admin
-    password: admin1234
+    url : jdbc:log4jdbc:mysql://localhost:3306/local.cdstudy
+    username: localuser
+    password: ahffkdy12#
+
+
 mybatis:
-  type-aliases-package: com.prj.codingstudy.domain.*
+  type-aliases-package: com.prj.codingstudy.core.biz.domain.**
   mapper-locations: /mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
     jdbc-type-for-null: VARCHAR
+
+jwt:
+  expiration_time:
+    access-token: 3600
+    refresh-token: 12800
+  # 86400000 1일
+  secret: a5aa5849aa6f272c8d8621c32c791ec71a166e85d47a59a85e7652bd32c414eb
 
 
 
