@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -70,7 +69,7 @@ public class SecurityConfig {
 
         return http.build();
     }
-    // ** 규칙: 헤더(Authorization), 메서드, IP 주소, 클라이언트으 쿠키 요청을 허용
+    // ** 규칙: 헤더(Authorization), 메서드, IP 주소, 클라이언트 쿠키 요청을 허용
     public CorsConfigurationSource configurationSource() {
         CorsConfiguration corsConfigurationSource = new CorsConfiguration();
         corsConfigurationSource.addAllowedHeader("*"); // 모든 헤더를 허용

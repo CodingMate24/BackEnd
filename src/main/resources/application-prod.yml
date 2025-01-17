@@ -1,0 +1,43 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  # datasource:
+    # driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    # url : jdbc:log4jdbc:mysql://db.coding-study.com:3306/cdstudy
+    # username: prod
+    # password: prod
+
+
+mybatis:
+  type-aliases-package: com.prj.codingstudy.core.biz.domain.**
+  mapper-locations: /mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: VARCHAR
+
+jwt:
+  expiration_time:
+    access-token: 3600
+    refresh-token: 12800
+  # 86400000 1일
+  secret: 생성필요
+
+server:
+  # address: db.coding-study.com
+  port: 443
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  ssl:
+    key-store: classpath:keystore/keystore.jks
+    key-alias: cdstudyssl
+    key-store-type: PKCS12
+    key-password: 12#
+
+
+
