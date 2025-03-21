@@ -11,7 +11,6 @@ spring:
     username: localuser
     password: localuser
 
-
 mybatis:
   type-aliases-package: com.prj.codingstudy.core.biz.domain.**
   mapper-locations: /mapper/**/*.xml
@@ -35,6 +34,8 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+
+
 
 
 

@@ -44,6 +44,26 @@ spring:
     servlet:
       cache: false
 
+  ## Email Settings
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    hostname: cdstudy.email.mng@gmail.com
+    username: cdstudy.email.mng@gmail.com
+#    password: etxn pmbd qady osba
+    password: isdj vyzs xztn dfuj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    transport:
+      protocol: smtp
+    debug: true
+    default:
+      encoding: UTF-8
+
 mybatis:
   type-aliases-package: com.prj.codingstudy.core.biz.domain.**
   mapper-locations: /mapper/**/*.xml
