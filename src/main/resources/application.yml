@@ -28,6 +28,7 @@ logging:
 spring:
   profiles:
     default: local
+    active: local
   config :
     location: /mapper/application-${spring.profiles.active}.yml
 
