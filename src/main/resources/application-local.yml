@@ -12,7 +12,7 @@ spring:
     password: localuser
 
 mybatis:
-  type-aliases-package: com.prj.codingstudy.core.biz.domain.**
+  type-aliases-package: com.prj.codingstudy.core.domain.**
   mapper-locations: /mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
