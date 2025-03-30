@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.prj.codingstudy.core.mapper.AuthAccessLogMapper">
+    <insert id="insertAccessLog" parameterType="AuthAccessLog">
+        INSERT INTO AUTH_ACCESS_LOG (ACCESS_TYPE,
+                                     ACCESS_URL,
+                                     ACCESS_URL_NM,
+                                     ACCESS_PARAM,
+                                     ACCESS_IP,
+                                     REG_ID,
+                                     REG_DT)
+        VALUES (#{accessType}
+                ,#{accessUrl}
+                ,#{accessUrlNm}
+                ,#{accessParam}
+                ,#{accessIp}
+                ,#{regId}
+                ,now()
+               )
+    </insert>
+</mapper>

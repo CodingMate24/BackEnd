@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.prj.codingstudy.core.mapper.UserMapper">
+    <!--로그인-->
+    <select id="login" resultType="com.prj.codingstudy.config.model.UserDto">
+        SELECT *
+        FROM AUTH_MEMBER_INF
+        WHERE MBR_EMAIL = #{mbrEmail}
+    </select>
+
+    <!--사용자 리스트 조회 -->
+    <select id="selectUserList" resultType="com.prj.codingstudy.config.model.UserDto">
+        SELECT *
+        FROM AUTH_MEMBER_INF
+        WHERE DEL_YN != 'Y'
+    </select>
+</mapper>

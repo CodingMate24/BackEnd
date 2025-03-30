@@ -1,23 +1,21 @@
-package com.prj.codingstudy.prop.email;
+package com.prj.codingstudy.core.controller;
 
-import com.prj.codingstudy.prop.email.EmailAuthService;
+import com.prj.codingstudy.core.service.auth.AuthEmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.http.HttpResponse;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/email-auth")
 public class EmailAuthController {
-    private final EmailAuthService emailAuthService;
+    private final AuthEmailService authEmailService;
 
     /* 인증을 위한 이메일 발송 */
     @GetMapping("/send")
     public ResponseEntity<?> sendEmail() throws Exception {
-        emailAuthService.saveEmailAuth("lsa6689@naver.com");
+        authEmailService.saveEmailAuth("lsa6689@naver.com");
         return ResponseEntity.status(HttpStatus.OK).body("");
     }
 

@@ -1,8 +1,7 @@
-package com.prj.codingstudy.prop.email;
+package com.prj.codingstudy.core.service.auth.impl;
 
-
+import com.prj.codingstudy.core.service.auth.AuthEmailService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -12,13 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import java.io.UnsupportedEncodingException;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class EmailAuthService {
+public class AuthEmailServiceImpl implements AuthEmailService {
 
     private final JavaMailSender mailSender;
 

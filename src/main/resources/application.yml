@@ -32,6 +32,11 @@ spring:
   config :
     location: /mapper/application-${spring.profiles.active}.yml
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
   application:
     name: CodingStudy
 
@@ -52,7 +57,7 @@ spring:
     hostname: cdstudy.email.mng@gmail.com
     username: cdstudy.email.mng@gmail.com
 #    password: etxn pmbd qady osba
-    password: isdj vyzs xztn dfuj
+    password: xluw fnet bzzu qsbp
     properties:
       mail:
         smtp:

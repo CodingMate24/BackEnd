@@ -4,7 +4,6 @@ import com.prj.codingstudy.core.domain.manage.ManageMenuInf;
 
 import java.util.List;
 
-
 public interface ManageMenuService {
     public List<ManageMenuInf> selectMenuList() throws Exception;
 }
