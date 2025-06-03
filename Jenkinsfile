@@ -3,9 +3,21 @@ pipeline {
     stages {
         stage('Prepare'){
             steps {
-                git credentialsId : 'github',
-                    branch : 'feature/seungho_v2',
-                    url : 'https://github.com/CodingMate24/BackEnd.git'
+                checkout(
+                            [$class: 'GitSCM',
+                            branches: [[name: 'feature/seungho_v2']],
+                            extensions:
+                            [[$class: 'SubmoduleOption',
+                                disableSubmodules: false,
+                                parentCredentials: true,
+                                recursiveSubmodules: false,
+                                reference: '',
+                                trackingSubmodules: true]],
+                            userRemoteConfigs:
+                                [[credentialsId: 'github',
+                                    url: 'https://github.com/CodingMate24/BackEnd.git']]
+                            ]
+                        )
             }
         }
         stage('test') {
@@ -14,13 +26,23 @@ pipeline {
             }
         }
         stage('build') {
-            steps {
-                echo 'build stage'
+            steps{
+                dir('backend'){
+                    sh'''
+                        echo build start
+                        ./gradlew clean bootJar
+                    '''
+                }
             }
         }
         stage('docker build') {
             steps {
                 echo 'docker build stage'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploy stage'
             }
         }
     }
