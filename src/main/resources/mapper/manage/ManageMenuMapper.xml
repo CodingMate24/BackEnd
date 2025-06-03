@@ -3,6 +3,6 @@
 <mapper namespace="com.prj.codingstudy.core.mapper.ManageMenuMapper">
     <select id="getMenuList" parameterType="String" resultType="ManageMenuInf">
         SELECT *
-          FROM MANAGE_MENU_INF
+          FROM 'MANAGE.MANAGE_MENU_INF'
     </select>
 </mapper>
