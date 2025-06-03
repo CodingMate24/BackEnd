@@ -27,12 +27,10 @@ pipeline {
         }
         stage('build') {
             steps{
-                dir('backend'){
-                    sh'''
-                        echo build start
-                        ./gradlew clean bootJar
-                    '''
-                }
+                sh'''
+                    echo build start
+                    ./gradlew clean bootJar
+                '''
             }
         }
         stage('docker build') {
