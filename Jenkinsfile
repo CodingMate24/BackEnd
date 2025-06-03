@@ -29,7 +29,6 @@ pipeline {
             steps{
                 sh'''
                     echo build start
-                    sudo ./gradlew clean bootJar
                 '''
             }
         }
