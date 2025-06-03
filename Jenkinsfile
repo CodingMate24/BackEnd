@@ -29,7 +29,7 @@ pipeline {
             steps{
                 sh'''
                     echo build start
-                    ./gradlew clean bootJar
+                    sudo ./gradlew clean bootJar
                 '''
             }
         }
